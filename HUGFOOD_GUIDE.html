@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hug Food — คู่มือการเริ่มใช้งานระบบ</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #FF6B35;
+      --secondary: #3498DB;
+      --accent: #2ECC71;
+      --warning: #F1C40F;
+      --danger: #E74C3C;
+      --bg-dark: #0A0A0F;
+      --bg-glass: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.1);
+      --text-main: #FFFFFF;
+      --text-muted: #A0A0B0;
+      --font-th: 'Kanit', sans-serif;
+      --font-en: 'Outfit', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-box: border-box; }
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-th);
+      background-image: radial-gradient(circle at 50% -20%, #2a1b1b, var(--bg-dark));
+      padding-bottom: 50px;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+    /* Header Section */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+      background: var(--bg-glass);
+      padding: 30px;
+      border-radius: 30px;
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+    .header-logo {
+      font-size: 5rem;
+      background: linear-gradient(135deg, var(--primary), #FF9F1C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.3));
+    }
+    .header-title h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .header-title h1 span { color: var(--primary); }
+    .header-title p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-top: 5px;
+    }
+
+    /* Grid System */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .step-card {
+      background: var(--bg-glass);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      position: relative;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      overflow: hidden;
+    }
+    .step-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+    .step-number {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      color: white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-family: var(--font-en);
+      box-shadow: 0 4px 10px rgba(255, 107, 53, 0.4);
+    }
+    .step-icon {
+      text-align: center;
+      margin: 10px 0 20px;
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+    .step-card h3 {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+    .step-list {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .step-list li {
+      margin-bottom: 8px;
+      display: flex;
+      gap: 8px;
+    }
+    .step-list li i { color: var(--accent); margin-top: 3px; font-size: 0.7rem; }
+
+    /* Highlight Sections */
+    .section-title {
+      background: var(--primary);
+      color: white;
+      display: inline-block;
+      padding: 8px 24px;
+      border-radius: var(--radius-full);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      border-radius: 30px;
+    }
+
+    .usage-example {
+      background: var(--bg-glass);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 30px;
+      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: center;
+    }
+    .flow-item { text-align: center; }
+    .flow-img {
+      width: 100%;
+      height: 120px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      font-size: 2rem;
+      color: var(--text-muted);
+      border: 1px dashed var(--border);
+    }
+    .flow-arrow { font-size: 1.5rem; color: var(--primary); display: flex; justify-content: center; align-items: center; }
+
+    /* Footer Info */
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .info-box {
+      background: rgba(46, 204, 113, 0.05);
+      border: 1px solid rgba(46, 204, 113, 0.2);
+      border-radius: 24px;
+      padding: 24px;
+    }
+    .info-box.warning {
+      background: rgba(231, 76, 60, 0.05);
+      border: 1px solid rgba(231, 76, 60, 0.2);
+    }
+    .info-box h4 { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+    .info-box.tips h4 { color: var(--accent); }
+    .info-box.warning h4 { color: var(--danger); }
+
+    .bottom-bar {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .bottom-bar span { color: var(--primary); font-weight: 600; }
+
+    @media (max-width: 768px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .usage-example { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .header { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-logo"><i class="fas fa-motorcycle"></i></div>
+      <div class="header-title">
+        <h1>เริ่มใช้งาน <span>HUG FOOD</span></h1>
+        <p>ระบบสั่งอาหารและส่งถึงที่ สำหรับชุมชน</p>
+      </div>
+    </header>
+
+    <!-- 9 Steps Grid -->
+    <div class="steps-grid">
+      <!-- Step 1 -->
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <div class="step-icon"><i class="fas fa-user-circle"></i></div>
+        <h3>เตรียมความพร้อม</h3>
+        <ul class="step-list">
+          <li><i class="fas fa-check"></i> บัญชี Google (Gmail)</li>
+          <li><i class="fas fa-check"></i> แอป LINE (สำหรับแจ้งเตือน)</li>
+          <li><i class="fas fa-check"></i> อินเทอร์เน็ตที่เสถียร</li>
+        </ul>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <div class="step-icon"><i class="fas fa-sign-in-alt"></i></div>
+        <h3>เข้าสู่ระบบ / สมัครสมาชิก</h3>
+        <ul class="step-list">
+          <li><i class="fas fa-check"></i> เข้าเว็บตามบทบาทของคุณ</li>
+          <li><i class="fas fa-check"></i> สมัครสมาชิกด้วยอีเมล</li>
+          <li><i class="fas fa-check"></i> ยืนยันตัวตนในระบบ</li>
+        </ul>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <div class="step-icon"><i class="fas fa-id-card"></i></div>
+        <h3>ตั้งค่าโปรไฟล์</h3>
+        <ul class="step-list">
+          <li><i class="fas fa-check"></i> ใส่ชื่อ-นามสกุลจริง</li>
+          <li><i class="fas fa-check"></i> เบอร์โทรศัพท์ที่ติดต่อได้</li>
+          <li><i class="fas fa-check"></i> พิกัดที่อยู่ (สำหรับลูกค้า)</li>
+        </ul>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <div class="step-icon"><i class="fas fa-store"></i></div>
+        <h3>เปิดร้านค้า (สำหรับร้าน)</h3>
+        <ul class="step-list">
+          <li><i class="fas fa-check"></i> กรอกข้อมูลร้านค้า</li>
+          <li><i class="fas fa-check"></i> เพิ่มเมนูอาหารและรูปภาพ</li>
+          <li><i class="fas fa-check"></i> รอแอดมินอนุมัติร้านค้า</li>
+        </ul>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="step-card">
+        <div class="step-number">5</div>
+        <div class="step-icon"><i class="fas fa-helmet-safety"></i></div>
+        <h3>ลงทะเบียนไรเดอร์</h3>
+        <ul class="step-list">
+          <li><i class="fas fa-check"></i> ใส่ข้อมูลรถและทะเบียน</li>
+          <li><i class="fas fa-check"></i> ผูกบัญชีธนาคารรับเงิน</li>
+          <li><i class="fas fa-check"></i> รอแอดมินเปิดสิทธิ์รับงาน</li>
+        </ul>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="step-card">
+        <div class="step-number">6</div>
+        <div class="step-icon"><i class="fas fa-shopping-basket"></i></div>
+        <h3>การสั่งอาหาร (ลูกค้า)</h3>
+        <ul class="step-list">
+          <li><i class="fas fa-check"></i> เลือกร้านค้าและเมนู</li>
+          <li><i class="fas fa-check"></i> ตรวจสอบราคาและค่าส่ง</li>
+          <li><i class="fas fa-check"></i> เลือกวิธีชำระเงิน</li>
+        </ul>
+      </div>
+
+      <!-- Step 7 -->
+      <div class="step-card">
+        <div class="step-number">7</div>
+        <div class="step-icon"><i class="fas fa-bell"></i></div>
+        <h3>รับการแจ้งเตือน</h3>
+        <ul class="step-list">
+          <li><i class="fas fa-check"></i> ร้านค้ารับออเดอร์</li>
+          <li><i class="fas fa-check"></i> ไรเดอร์รับงาน</li>
+          <li><i class="fas fa-check"></i> สถานะออเดอร์ Real-time</li>
+        </ul>
+      </div>
+
+      <!-- Step 8 -->
+      <div class="step-card">
+        <div class="step-number">8</div>
+        <div class="step-icon"><i class="fas fa-comments"></i></div>
+        <h3>ระบบแชทและติดตาม</h3>
+        <ul class="step-list">
+          <li><i class="fas fa-check"></i> แชทคุยกับไรเดอร์/ลูกค้า</li>
+          <li><i class="fas fa-check"></i> ดูพิกัดไรเดอร์บนแผนที่</li>
+          <li><i class="fas fa-check"></i> โทรติดต่อกรณีเร่งด่วน</li>
+        </ul>
+      </div>
+
+      <!-- Step 9 -->
+      <div class="step-card">
+        <div class="step-number">9</div>
+        <div class="step-icon"><i class="fas fa-mobile-alt"></i></div>
+        <h3>ติดตั้งเป็นแอป (PWA)</h3>
+        <ul class="step-list">
+          <li><i class="fas fa-check"></i> กด "Add to Home Screen"</li>
+          <li><i class="fas fa-check"></i> ใช้งานได้เหมือนแอปจริง</li>
+          <li><i class="fas fa-check"></i> รับแจ้งเตือนได้รวดเร็ว</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Usage Example -->
+    <div class="section-title">ขั้นตอนการรับส่งอาหาร</div>
+    <div class="usage-example">
+      <div class="flow-item">
+        <div class="flow-img"><i class="fas fa-utensils"></i></div>
+        <p><b>1. ร้านทำอาหาร</b></p>
+        <p style="font-size:0.8rem;color:var(--text-muted)">กดยืนยันออเดอร์</p>
+      </div>
+      <div class="flow-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+      <div class="flow-item">
+        <div class="flow-img"><i class="fas fa-motorcycle"></i></div>
+        <p><b>2. ไรเดอร์รับงาน</b></p>
+        <p style="font-size:0.8rem;color:var(--text-muted)">ไปรับอาหารที่ร้าน</p>
+      </div>
+      <div class="flow-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+      <div class="flow-item">
+        <div class="flow-img"><i class="fas fa-home"></i></div>
+        <p><b>3. ส่งถึงมือลูกค้า</b></p>
+        <p style="font-size:0.8rem;color:var(--text-muted)">เก็บเงิน/ยืนยันการส่ง</p>
+      </div>
+    </div>
+
+    <!-- Footer Info -->
+    <div class="footer-grid">
+      <div class="info-box tips">
+        <h4><i class="fas fa-lightbulb"></i> เคล็ดลับ</h4>
+        <ul class="step-list">
+          <li><i class="fas fa-check"></i> ร้านค้าควรใส่รูปอาหารที่น่ากิน</li>
+          <li><i class="fas fa-check"></i> ไรเดอร์ควรเปิด GPS ตลอดเวลา</li>
+          <li><i class="fas fa-check"></i> ลูกค้าควรเช็คพิกัดบ้านให้แม่นยำ</li>
+        </ul>
+      </div>
+      <div class="info-box warning">
+        <h4><i class="fas fa-exclamation-triangle"></i> ข้อควรระวัง</h4>
+        <ul class="step-list">
+          <li><i class="fas fa-check" style="color:var(--danger)"></i> อย่าเปิดเผยรหัสผ่านให้ผู้อื่น</li>
+          <li><i class="fas fa-check" style="color:var(--danger)"></i> ตรวจสอบยอดเงินก่อนกดส่งงาน</li>
+          <li><i class="fas fa-check" style="color:var(--danger)"></i> รักษามารยาทในการแชท</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bottom-bar">
+      เพียงเท่านี้ คุณก็พร้อมใช้งานระบบ <span>HUG FOOD</span> แล้ว!
+    </div>
+  </div>
+
+</body>
+</html>
